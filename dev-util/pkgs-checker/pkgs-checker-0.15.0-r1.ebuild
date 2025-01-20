@@ -4,7 +4,7 @@ EAPI=7
 
 DESCRIPTION="Macaroni OS Artefacts Checker"
 HOMEPAGE="https://github.com/geaaru/pkgs-checker"
-SRC_URI="https://github.com/geaaru/pkgs-checker/tarball/b1db0157189f0f2493d8fb319b722293cba9e70e -> pkgs-checker-0.15.0-b1db015.tar.gz"
+SRC_URI="https://api.github.com/repos/geaaru/pkgs-checker/tarball/v0.15.0 -> pkgs-checker-0.15.0.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -17,14 +17,14 @@ post_src_unpack() {
 }
 
 src_compile() {
-	anise_ldflags=(
+	custom_ldflags=(
 		"-X \"github.com/geaaru/pkgs-checker/cmd.BuildTime=$(date -u '+%Y-%m-%d %I:%M:%S %Z')\""
 		"-X github.com/geaaru/pkgs-checker/cmd.BuildCommit=b1db0157189f0f2493d8fb319b722293cba9e70e"
 		"-X github.com/geaaru/pkgs-checker/cmd.BuildGoVersion=$(go env GOVERSION)"
 	)
 
 	CGO_ENABLED=0 go build \
-		-ldflags "${anise_ldflags[*]}" \
+		-ldflags "${custom_ldflags[*]}" \
 		-o ${PN} -v -x -mod=vendor . || die
 }
 
