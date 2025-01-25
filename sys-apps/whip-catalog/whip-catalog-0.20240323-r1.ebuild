@@ -2,27 +2,33 @@
 
 EAPI=7
 
-inherit git-r3
-
-DESCRIPTION="Whip tool catalog"
+DESCRIPTION="Whip tool Catalog"
 HOMEPAGE="https://github.com/macaroni-os/whip-catalog"
-EGIT_REPO_URI="https://github.com/macaroni-os/whip-catalog"
-EGIT_COMMIT="cf9a2ff03c548e8f65504c643bd3b38bf467f083"
+SRC_URI="https://api.github.com/repos/macaroni-os/whip-catalog/tarball/refs/tags/v0.20240323 -> whip-catalog-0.20240323.tar.gz"
 
-RESTRICT="network-sandbox"
-RDEPEND="app-admin/whip"
-IUSE=""
+LICENSE="GPL-3"
 SLOT="0"
-LICENSE="Apache-2.0"
 KEYWORDS="*"
+RDEPEND="
+	app-admin/whip
+	
+"
+
+post_src_unpack() {
+	mv macaroni-os-whip-catalog-* ${S}
+}
 
 src_install() {
 	insinto /usr/share/macaroni/whip-catalog/eclass
 	for f in "${S}"/catalog/eclass/*.yaml ; do
-		doins "${f}"
+	  doins "${f}"
 	done
 	insinto /usr/share/macaroni/whip-catalog/commons
 	for f in "${S}"/catalog/commons/*.yaml ; do
-		doins "${f}"
+	  doins "${f}"
 	done
 }
+
+
+
+# vim: filetype=ebuild
