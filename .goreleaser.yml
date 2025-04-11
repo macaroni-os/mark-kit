@@ -1,7 +1,7 @@
 version: 2
 project_name: MARK
-build:
-  skip: true
+builds:
+  - skip: true
 release:
   header: |
     ## Macaroni OS - {{ .Tag }}!
