@@ -31,6 +31,9 @@ src_compile() {
 src_install() {
 	dobin "${PN}"
 	dodoc README.md
+	insinto /usr/share/pkgs-checker
+	doins "${S}"/contrib/gen-uses-filter.yaml
+	
 }
 
 # vim: filetype=ebuild
