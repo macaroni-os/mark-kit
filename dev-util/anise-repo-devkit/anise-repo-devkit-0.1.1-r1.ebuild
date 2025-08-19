@@ -1,6 +1,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
+inherit go-module
 
 DESCRIPTION="Anise Repository Development Kit Knife"
 HOMEPAGE="https://github.com/macaroni-os/anise-repo-devkit"
