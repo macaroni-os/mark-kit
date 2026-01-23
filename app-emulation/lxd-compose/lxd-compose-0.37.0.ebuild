@@ -11,7 +11,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="*"
 DEPEND="dev-lang/go"
-BDEPEND="app-arch/upx-bin"
+BDEPEND="compress? ( app-arch/upx-bin )"
 IUSE="+compress"
 
 post_src_unpack() {
