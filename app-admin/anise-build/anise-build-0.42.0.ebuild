@@ -30,7 +30,7 @@ src_compile() {
 }
 src_install() {
 
-	dobin anise-build/{{ .Values.pn }}
+	dobin anise-build/anise-build
 	dodoc README.md
 	
 }
