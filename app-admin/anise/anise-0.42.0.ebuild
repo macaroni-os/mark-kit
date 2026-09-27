@@ -31,7 +31,7 @@ src_compile() {
 src_install() {
 
 	dobin "anise"
-	dosym /usr/bin/{{ .Values.pn }} /usr/bin/luet
+	dosym /usr/bin/anise /usr/bin/luet
 	dodoc README.md
 	
 	insinto /etc/anise
