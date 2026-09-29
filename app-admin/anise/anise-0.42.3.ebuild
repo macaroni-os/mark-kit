@@ -38,7 +38,7 @@ src_install() {
 	newins "${FILESDIR}"/anise.yaml anise.yaml
 	
 	insinto /etc/anise/repos.conf.d
-	newins "${FILESDIR}"/geaaru-repo-index.yml geaaru-repo-index.yml
+	newins "${FILESDIR}"/macaroni-repo-index.yml macaroni-repo-index.yml
 	
 }
 
